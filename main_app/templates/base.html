@@ -1,0 +1,30 @@
+{% comment %} This page will be where navigation bar, header, and footers can be defined which can then be used across all other views of the app.  {% endcomment %}
+
+{% comment %} To Do: Needs styling...will work on later if time permits. {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <title>Book Collector</title>
+    {% block head %} 
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+     {% block content %} 
+     {% endblock %}
+     </main>
+  </body>
+</html>
