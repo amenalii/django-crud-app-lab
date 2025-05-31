@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} {% block content %}
+
+<section>
+  <h1>Add a New Book</h1>
+  <form method="POST" action="">
+    {% csrf_token %} 
+    <table>
+        {% comment %} built in django method which automatically takes all form fields and puts them into a table. can also set as paragraph or ul.  {% endcomment %}
+        {{ form.as_table }} 
+    </table>
+    <button type="submit">Add Book</button>
+  </form>
+  <a href="{% url 'book_index' %}">Back to Book List</a>
+</section>
+{% endblock %}
