@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from .models import Book
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
 def book_index(request):
-    return render(request, 'books/index.html')
+    books = Book.objects.all()
+    return render(request, 'books/index.html', {'books': books})

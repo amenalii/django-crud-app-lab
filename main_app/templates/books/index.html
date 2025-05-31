@@ -6,5 +6,20 @@
 
 <section>
     <h1> Book List </h1>
-    </section>
-    {% endblock %}
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>
+                    <strong>{{ book.name }}</strong>
+                    <br>
+                    Author: {{ book.author }}
+                    <br>
+                    Description: {{ book.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You havent added any books</p>
+    {% endif %}
+</section>
+{% endblock %}
