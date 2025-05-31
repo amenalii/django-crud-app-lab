@@ -3,15 +3,19 @@
 {% endblock %} {% block content %}
 
 <section>
-  <h1>Add a New Book</h1>
-  <form method="POST" action="">
-    {% csrf_token %} 
-    <table>
-        {% comment %} built in django method which automatically takes all form fields and puts them into a table. can also set as paragraph or ul.  {% endcomment %}
-        {{ form.as_table }} 
-    </table>
-    <button type="submit">Add Book</button>
-  </form>
-  <a href="{% url 'book_index' %}">Back to Book List</a>
+    {% if book %}
+        <h1>Edit {{ book.name }}</h1>
+    {% else %}
+        <h1>Add a New Book</h1>
+    {% endif %}
+        <form method="POST" action="">
+        {% csrf_token %} 
+            <table>
+            {% comment %} built in django method which automatically takes all form fields and puts them into a table. can also set as paragraph or ul.  {% endcomment %}
+            {{ form.as_table }} 
+            </table>
+            <button type="submit">Submit</button>
+        </form>
+    <a href="{% url 'book_index' %}">Back to Book List</a>
 </section>
 {% endblock %}

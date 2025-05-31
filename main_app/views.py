@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Book
 
 # These are function-based views that handle requests and return responses.
@@ -21,3 +21,11 @@ class BookCreate(CreateView):
     model = Book
     fields = '__all__'
     # success_url = '/books/' .... no longer needed as we use the get_absolute_url method in the model to redirect to detail page after creation
+
+class BookUpdate(UpdateView):
+    model = Book
+    fields = '__all__' #Keeping all fields for update instead of just desceription incase book name or author names are misspelled. 
+
+class BookDelete(DeleteView):
+    model = Book
+    success_url = '/books/'  
