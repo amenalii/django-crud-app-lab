@@ -16,6 +16,12 @@
             </table>
             <button type="submit">Submit</button>
         </form>
-    <a href="{% url 'book_index' %}">Back to Book List</a>
+    <br>
+
+    <div>
+        {% if book %}
+            <a href="{% url 'book_detail' book.id %}">Cancel</a>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}
