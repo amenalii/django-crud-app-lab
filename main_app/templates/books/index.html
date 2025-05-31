@@ -10,11 +10,11 @@
         <ul>
             {% for book in books %}
                 <li>
-                    <strong>{{ book.name }}</strong>
-                    <br>
-                    Author: {{ book.author }}
-                    <br>
-                    Description: {{ book.description }}
+                    <strong>
+                        <a href="{% url 'book_detail' book.id %}">
+                            {{ book.name }}
+                        </a>
+                    </strong>
                 </li>
             {% endfor %}
         </ul>
